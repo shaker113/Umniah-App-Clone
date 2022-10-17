@@ -62,6 +62,7 @@ class _ShopTabState extends State<ShopTab> {
                       height: 8.7,
                     ),
                     ItemsContainer(
+                      shortHeight: true,
                       iconData: Icons.card_giftcard,
                       theText: "البطاقات\nالالكترونية",
                     )
@@ -70,6 +71,7 @@ class _ShopTabState extends State<ShopTab> {
                 Column(
                   children: [
                     ItemsContainer(
+                        shortHeight: true,
                         iconData: Icons.airplane_ticket,
                         theText: "التجوال\nالدولي"),
                     const SizedBox(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:umniah/data/data.dart';
-import 'package:umniah/tabs/ShopTab.dart';
+
 import 'package:umniah/widgets/widgets.dart';
 
 import '../tabs/tabs.dart';
@@ -27,7 +27,7 @@ class _homePageState extends State<homePage> {
       appBar: const MyAppBar(),
       extendBodyBehindAppBar: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: myFloatingActionButton(),
+      floatingActionButton: actionTab(),
       bottomNavigationBar: myBottomAppBar(),
       body: activeTabWidget[activeTab],
     );
@@ -138,18 +138,6 @@ class _homePageState extends State<homePage> {
           ],
         ),
       ),
-    );
-  }
-
-  myFloatingActionButton() {
-    return FloatingActionButton(
-      backgroundColor: foreGroundColor,
-      onPressed: () {},
-      child: vertecalButton(
-          IconData: Icons.star_border_outlined,
-          thetext: "خطك",
-          thetextColor: Colors.white70,
-          onTap: () {}),
     );
   }
 }

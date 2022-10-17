@@ -57,7 +57,7 @@ class CustomButton extends StatelessWidget {
                   style: TextStyle(
                       color: textColor,
                       height: 1.2,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w600,
                       fontSize: 15),
                 ),
                 wantAnotherText
@@ -66,7 +66,7 @@ class CustomButton extends StatelessWidget {
                         style: TextStyle(
                             color: anotherTextColor,
                             height: 1,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
                             fontSize: 15),
                       )
                     : const SizedBox()

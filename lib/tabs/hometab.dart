@@ -3,7 +3,6 @@ import 'package:umniah/widgets/imageSlider.dart';
 
 import '../data/data.dart';
 import '../widgets/widgets.dart';
-import 'dart:async';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -14,7 +13,7 @@ class HomeTab extends StatefulWidget {
 
 class _HomeTabState extends State<HomeTab> {
   bool isPressed = false;
-  double containerHeight = 590;
+  double containerHeight = 520;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -23,7 +22,7 @@ class _HomeTabState extends State<HomeTab> {
           AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             curve: Curves.decelerate,
-            padding: const EdgeInsets.all(18),
+            padding: const EdgeInsets.symmetric(horizontal: 18),
             alignment: Alignment.topCenter,
             width: double.infinity,
             height: containerHeight,
@@ -50,8 +49,8 @@ class _HomeTabState extends State<HomeTab> {
                               isPressed = !isPressed;
                               setState(() {
                                 isPressed
-                                    ? containerHeight = 825
-                                    : containerHeight = 590;
+                                    ? containerHeight = 750
+                                    : containerHeight = 520;
                               });
                             });
                           },
@@ -61,8 +60,8 @@ class _HomeTabState extends State<HomeTab> {
                             isPressed = !isPressed;
                             setState(() {
                               isPressed
-                                  ? containerHeight = 825
-                                  : containerHeight = 590;
+                                  ? containerHeight = 750
+                                  : containerHeight = 520;
                             });
                           },
                           balance: 1.0,
@@ -116,8 +115,8 @@ class _HomeTabState extends State<HomeTab> {
                         isPressed = !isPressed;
                         setState(() {
                           isPressed
-                              ? containerHeight = 825
-                              : containerHeight = 590;
+                              ? containerHeight = 750
+                              : containerHeight = 520;
                         });
                       })
                 ],

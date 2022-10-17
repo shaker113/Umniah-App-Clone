@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import '../data/data.dart';
 
@@ -235,19 +237,40 @@ class MobileNumberContainer extends StatelessWidget {
 }
 
 class ItemsContainer extends StatelessWidget {
-  ItemsContainer({super.key, required this.iconData, required this.theText});
+  ItemsContainer({
+    super.key,
+    required this.iconData,
+    required this.theText,
+    this.containerColor,
+    this.thistextColor,
+    this.shortHeight,
+  });
   IconData iconData;
   String theText;
+  Color? containerColor;
+  Color? thistextColor;
+  bool? shortHeight;
 
   @override
   Widget build(BuildContext context) {
+    double containerHeight;
+
+    shortHeight == null || shortHeight == false
+        ? containerHeight = 165
+        : containerHeight = 135;
+    containerColor == null
+        ? containerColor = Colors.white
+        : containerColor = containerColor;
+    thistextColor == null
+        ? thistextColor = textColor
+        : thistextColor = thistextColor;
     return Container(
         padding:
             const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
-        height: 165,
+        height: containerHeight,
         width: 175,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: containerColor,
           borderRadius: BorderRadius.circular(7),
         ),
         child: Column(
@@ -267,7 +290,9 @@ class ItemsContainer extends StatelessWidget {
               theText,
               textAlign: TextAlign.right,
               style: TextStyle(
-                  color: textColor, fontSize: 22, fontWeight: FontWeight.w600),
+                  color: thistextColor,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600),
             )
           ],
         ));
@@ -455,5 +480,48 @@ class VerticalyLongItemContainer extends StatelessWidget {
         )
       ],
     );
+  }
+}
+
+class SmallContainer extends StatelessWidget {
+  IconData iconData;
+  String theText;
+  SmallContainer({super.key, required this.iconData, required this.theText});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding:
+            const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
+        height: 112,
+        width: 112,
+        decoration: BoxDecoration(
+          color: containerColor,
+          borderRadius: BorderRadius.circular(7),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Icon(
+                  iconData,
+                  color: Colors.grey,
+                  size: 25,
+                ),
+              ],
+            ),
+            Text(
+              theText,
+              textAlign: TextAlign.right,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 19,
+                  height: 1.1,
+                  fontWeight: FontWeight.w500),
+            )
+          ],
+        ));
   }
 }

@@ -34,11 +34,14 @@ class _MyAppBarState extends State<MyAppBar> {
         onTap: () {
           showGeneralDialog(
             context: context,
+            barrierLabel: "Label",
+            barrierDismissible: true,
+            barrierColor: Colors.black.withOpacity(0.5),
             pageBuilder: (context, animation, secondaryAnimation) => Scaffold(
               appBar: myAppBar2(),
               backgroundColor: Colors.black54,
               body: Container(
-                padding: const EdgeInsets.all(18),
+                padding: const EdgeInsets.symmetric(horizontal: 18),
                 alignment: Alignment.topCenter,
                 width: double.infinity,
                 height: 400,
