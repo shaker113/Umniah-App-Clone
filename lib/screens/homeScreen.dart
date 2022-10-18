@@ -65,10 +65,10 @@ class _homePageState extends State<homePage> {
                 activeTab == 3
                     ? CircleAvatar(
                         backgroundColor: umniahColor,
-                        radius: 5,
+                        radius: 4,
                       )
                     : const SizedBox(
-                        height: 5,
+                        height: 4,
                       ),
               ],
             ),
@@ -87,10 +87,10 @@ class _homePageState extends State<homePage> {
                 activeTab == 2
                     ? CircleAvatar(
                         backgroundColor: umniahColor,
-                        radius: 5,
+                        radius: 4,
                       )
                     : const SizedBox(
-                        height: 5,
+                        height: 4,
                       ),
               ],
             ),
@@ -112,10 +112,10 @@ class _homePageState extends State<homePage> {
                 activeTab == 1
                     ? CircleAvatar(
                         backgroundColor: umniahColor,
-                        radius: 5,
+                        radius: 4,
                       )
                     : const SizedBox(
-                        height: 5,
+                        height: 4,
                       ),
               ],
             ),
@@ -134,10 +134,10 @@ class _homePageState extends State<homePage> {
                 activeTab == 0
                     ? CircleAvatar(
                         backgroundColor: umniahColor,
-                        radius: 5,
+                        radius: 4,
                       )
                     : const SizedBox(
-                        height: 5,
+                        height: 4,
                       ),
               ],
             ),

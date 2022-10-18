@@ -49,7 +49,7 @@ class _MyAppBarState extends State<MyAppBar> {
               appBar: myAppBar2(),
               backgroundColor: Colors.black54,
               body: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 alignment: Alignment.topCenter,
                 width: double.infinity,
                 height: 400,

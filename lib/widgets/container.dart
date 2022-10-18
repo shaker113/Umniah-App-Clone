@@ -565,7 +565,7 @@ class UcoinLevelContainer extends StatelessWidget {
         width: double.infinity,
         height: 110,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(22), color: containerColor),
+            borderRadius: BorderRadius.circular(12), color: containerColor),
         padding: const EdgeInsets.all(15),
       ),
       Positioned(
@@ -652,7 +652,7 @@ class UCoinAmontContainer extends StatelessWidget {
           width: double.infinity,
           height: 150,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(22), color: foreGroundColor),
+              borderRadius: BorderRadius.circular(12), color: foreGroundColor),
           padding: const EdgeInsets.all(15),
         ),
         Positioned(
@@ -664,17 +664,45 @@ class UCoinAmontContainer extends StatelessWidget {
               height: 150,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(22),
-                      bottomRight: Radius.circular(22)),
+                      topRight: Radius.circular(12),
+                      bottomRight: Radius.circular(12)),
                   color: containerColor),
               padding: const EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Icon(Icons.u_turn_left),
-                  Text("5,238"),
-                  Text("اجمالي الرصيد")
+                children: [
+                  Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.white,
+                        ),
+                      ),
+                      child: Container(
+                          padding: const EdgeInsets.all(2),
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: const Text(
+                            "U",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 10, fontWeight: FontWeight.bold),
+                          ))),
+                  const Text(
+                    "5,238",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 25),
+                  ),
+                  Text(
+                    "اجمالي الرصيد",
+                    style: TextStyle(
+                      color: Colors.grey.withOpacity(0.9),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -689,10 +717,49 @@ class UCoinAmontContainer extends StatelessWidget {
               height: 150,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(22),
-                      bottomLeft: Radius.circular(22)),
+                      topLeft: Radius.circular(12),
+                      bottomLeft: Radius.circular(12)),
                   color: containerColor),
               padding: const EdgeInsets.all(15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    "مع شركائنا",
+                    style: TextStyle(
+                      color: Colors.grey.withOpacity(0.9),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: const Color.fromARGB(255, 138, 143, 87),
+                          ),
+                        ),
+                        child: Icon(
+                          Icons.local_fire_department_sharp,
+                          color: umniahColor,
+                          size: 13,
+                        ),
+                      ),
+                      const Text(
+                        "1,200",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            height: 1.5,
+                            fontSize: 20),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
