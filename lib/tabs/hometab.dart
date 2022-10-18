@@ -22,7 +22,7 @@ class _HomeTabState extends State<HomeTab> {
           AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             curve: Curves.decelerate,
-            padding: const EdgeInsets.symmetric(horizontal: 18),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             alignment: Alignment.topCenter,
             width: double.infinity,
             height: containerHeight,

@@ -4,7 +4,8 @@ import '../data/data.dart';
 import 'widgets.dart';
 
 class MyAppBar extends StatefulWidget with PreferredSizeWidget {
-  const MyAppBar({super.key});
+  int activeTab;
+  MyAppBar({super.key, required this.activeTab});
 
   @override
   State<MyAppBar> createState() => _MyAppBarState();
@@ -20,14 +21,21 @@ class _MyAppBarState extends State<MyAppBar> {
       elevation: 0,
       backgroundColor: foreGroundColor,
       centerTitle: true,
-      leading:
-          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
-      actions: const [
-        Image(
-          image: AssetImage(
-            "assets/images/logo.png",
-          ),
-          width: 30,
+      leadingWidth: widget.activeTab == 2 ? 95 : 40,
+      leading: widget.activeTab == 2
+          ? appBarButton()
+          : IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
+      actions: [
+        Padding(
+          padding: EdgeInsets.only(right: 10),
+          child: widget.activeTab == 2
+              ? const Icon(Icons.info_outline_rounded)
+              : const Image(
+                  image: AssetImage(
+                    "assets/images/logo.png",
+                  ),
+                  width: 30,
+                ),
         )
       ],
       title: GestureDetector(
@@ -140,6 +148,41 @@ class _MyAppBarState extends State<MyAppBar> {
           width: 30,
         )
       ],
+    );
+  }
+
+  appBarButton() {
+    return Container(
+      width: 20,
+      margin: EdgeInsets.only(top: 13, bottom: 13, left: 10),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
+          backgroundColor: umniahColor,
+          fixedSize: Size(20, 20),
+        ),
+        onPressed: () {},
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "السجل",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: textColor,
+                fontSize: 13,
+              ),
+            ),
+            Icon(
+              Icons.timelapse_outlined,
+              color: textColor,
+              size: 14,
+            )
+          ],
+        ),
+      ),
     );
   }
 }

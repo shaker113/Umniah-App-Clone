@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:umniah/screens/uconInfo.dart';
 import '../data/data.dart';
 
 // ignore: camel_case_types
@@ -119,10 +120,16 @@ class ContainerWithProgressBar extends StatelessWidget {
               )
             ],
           ),
-          LinearProgressIndicator(
-            value: usedData / originalData,
-            color: umniahColor,
-            backgroundColor: const Color.fromARGB(255, 112, 118, 84),
+          SizedBox(
+            height: 5,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child: LinearProgressIndicator(
+                value: usedData / originalData,
+                color: umniahColor,
+                backgroundColor: const Color.fromARGB(255, 112, 118, 84),
+              ),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -334,22 +341,41 @@ class UcoinContainer extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontSize: 13),
           ),
-          Container(
-            padding: const EdgeInsets.only(right: 15),
-            alignment: Alignment.topRight,
-            width: double.infinity,
-            height: 30,
-            decoration: BoxDecoration(
-                color: const Color.fromARGB(230, 182, 186, 112),
-                borderRadius: BorderRadius.circular(22)),
-            child: const Text(
-              "ذهبي",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          Stack(children: [
+            Container(
+              height: 40,
             ),
-          ),
+            Positioned(
+              bottom: 0,
+              child: Container(
+                padding: const EdgeInsets.only(right: 15),
+                alignment: Alignment.topRight,
+                width: 135,
+                height: 30,
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(230, 182, 186, 112),
+                    borderRadius: BorderRadius.circular(22)),
+                child: const Text(
+                  "ذهبي",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w600),
+                ),
+              ),
+            ),
+            Container(
+              height: 40,
+            ),
+            const Positioned(
+              bottom: 0,
+              left: 10,
+              child: Image(
+                image: AssetImage("assets/images/gold2.png"),
+                height: 40,
+              ),
+            ),
+          ]),
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             width: double.infinity,
             height: 75,
             decoration: BoxDecoration(
@@ -367,8 +393,11 @@ class UcoinContainer extends StatelessWidget {
                         color: Colors.grey.withOpacity(0.9),
                       ),
                     ),
+                    const SizedBox(
+                      width: 5,
+                    ),
                     Text(
-                      "2122",
+                      "4122",
                       style: TextStyle(
                         color: textColor,
                       ),
@@ -440,8 +469,8 @@ class LongItemsContainer extends StatelessWidget {
   }
 }
 
-class VerticalyLongItemContainer extends StatelessWidget {
-  VerticalyLongItemContainer(
+class horizontallyLongItemContainer extends StatelessWidget {
+  horizontallyLongItemContainer(
       {super.key,
       required this.height,
       required this.theText,
@@ -524,4 +553,182 @@ class SmallContainer extends StatelessWidget {
           ],
         ));
   }
+}
+
+class UcoinLevelContainer extends StatelessWidget {
+  const UcoinLevelContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(fit: StackFit.passthrough, children: [
+      Container(
+        width: double.infinity,
+        height: 110,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(22), color: containerColor),
+        padding: const EdgeInsets.all(15),
+      ),
+      Positioned(
+          right: 15,
+          top: 20,
+          child: Stack(
+            alignment: Alignment.bottomLeft,
+            children: const [
+              CircleAvatar(
+                radius: 25,
+                backgroundColor: Color.fromARGB(255, 109, 118, 124),
+              ),
+              CircleAvatar(
+                radius: 30,
+                backgroundColor: Colors.transparent,
+              ),
+              Positioned(
+                left: 4,
+                child: Image(
+                  image: AssetImage("assets/images/gold1.png"),
+                  height: 53,
+                ),
+              ),
+            ],
+          )),
+      const Positioned(
+          right: 85,
+          bottom: 50,
+          child: Text(
+            "ذهبي",
+            style: TextStyle(
+                fontSize: 18, color: Colors.white, fontWeight: FontWeight.w700),
+          )),
+      Positioned(
+          left: 30,
+          bottom: 15,
+          child: Text(
+            "انت في اعلى مستوى",
+            style: TextStyle(color: umniahColor, fontWeight: FontWeight.w600),
+          )),
+      Positioned(
+          left: 30,
+          bottom: 40,
+          child: SizedBox(
+            width: 260,
+            height: 5,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child: LinearProgressIndicator(
+                valueColor: AlwaysStoppedAnimation(umniahColor),
+                value: 1,
+                color: umniahColor,
+                backgroundColor: const Color.fromARGB(255, 112, 118, 84),
+              ),
+            ),
+          )),
+      Positioned(
+        child: IconButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return const UcoinInfo();
+              },
+            ));
+          },
+          icon: const Icon(
+            Icons.arrow_upward,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    ]);
+  }
+}
+
+class UCoinAmontContainer extends StatelessWidget {
+  const UCoinAmontContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          height: 150,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(22), color: foreGroundColor),
+          padding: const EdgeInsets.all(15),
+        ),
+        Positioned(
+          right: 0,
+          child: ClipPath(
+            clipper: CustomClipPath2(),
+            child: Container(
+              width: 240,
+              height: 150,
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(22),
+                      bottomRight: Radius.circular(22)),
+                  color: containerColor),
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Icon(Icons.u_turn_left),
+                  Text("5,238"),
+                  Text("اجمالي الرصيد")
+                ],
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          left: 0,
+          child: ClipPath(
+            clipper: CustomClipPath1(),
+            child: Container(
+              width: 175,
+              height: 150,
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(22),
+                      bottomLeft: Radius.circular(22)),
+                  color: containerColor),
+              padding: const EdgeInsets.all(15),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class CustomClipPath1 extends CustomClipper<Path> {
+  @override
+  Path getClip(size) {
+    Path path = Path();
+    path.moveTo(size.width, size.height);
+    path.lineTo(size.width * 0.72, size.height * 0);
+    path.lineTo(size.width * 0, size.height * 0);
+    path.lineTo(size.width * 0, size.height);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class CustomClipPath2 extends CustomClipper<Path> {
+  @override
+  Path getClip(size) {
+    Path path = Path();
+    path.moveTo(size.width, size.height);
+    path.lineTo(size.width, size.height * 0);
+    path.lineTo(size.width * 0, size.height * 0);
+    path.lineTo(size.width * 0.2, size.height);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

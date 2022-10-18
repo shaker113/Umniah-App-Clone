@@ -35,7 +35,7 @@ class _ShopTabState extends State<ShopTab> {
                 const SizedBox(
                   height: 17,
                 ),
-                VerticalyLongItemContainer(
+                horizontallyLongItemContainer(
                   imagePath: "assets/images/phone.png",
                   theText: "المتجر\nالالكتروني",
                   height: 125,

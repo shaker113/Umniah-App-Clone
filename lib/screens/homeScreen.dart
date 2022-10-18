@@ -18,16 +18,22 @@ class homePage extends StatefulWidget {
 class _homePageState extends State<homePage> {
   int activeTab = 0;
 
-  List<Widget> activeTabWidget = [const HomeTab(), const ShopTab()];
+  List<Widget> activeTabWidget = [
+    const HomeTab(),
+    const ShopTab(),
+    const UconTab()
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backGroundColor,
-      appBar: const MyAppBar(),
+      appBar: MyAppBar(
+        activeTab: activeTab,
+      ),
       extendBodyBehindAppBar: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: actionTab(),
+      floatingActionButton: const actionTab(),
       bottomNavigationBar: myBottomAppBar(),
       body: activeTabWidget[activeTab],
     );
