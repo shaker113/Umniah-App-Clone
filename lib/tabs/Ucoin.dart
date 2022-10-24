@@ -80,7 +80,7 @@ class _UconTabState extends State<UconTab> {
               ],
             ),
           ),
-          Text("TabBar")
+          UcoinTabBar(tab1: "استبدل", tab2: "اجمع")
         ],
       ),
     );

@@ -427,14 +427,19 @@ class UcoinContainer extends StatelessWidget {
 class LongItemsContainer extends StatelessWidget {
   LongItemsContainer(
       {super.key,
+      required this.top,
+      required this.left,
       required this.theText,
       required this.imagePath,
       required this.colors,
-      required this.textColor});
+      required this.textColor,
+      required this.imageHeight});
   String theText;
   String imagePath;
   List<Color> colors;
   Color textColor;
+  double top, left, imageHeight;
+
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -456,13 +461,14 @@ class LongItemsContainer extends StatelessWidget {
         ),
       ),
       Positioned(
-        top: 20,
+        top: top,
+        left: left,
         child: Image(
           image: AssetImage(
             imagePath,
           ),
           fit: BoxFit.fitWidth,
-          height: 150,
+          height: imageHeight,
         ),
       ),
     ]);
@@ -474,10 +480,18 @@ class horizontallyLongItemContainer extends StatelessWidget {
       {super.key,
       required this.height,
       required this.theText,
-      required this.imagePath});
+      required this.imagePath,
+      required this.bottom,
+      required this.left,
+      required this.containerColors,
+      required this.titleColor});
   String theText;
   String imagePath;
   double height;
+  double left;
+  double bottom;
+  List<Color> containerColors;
+  Color titleColor;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -488,19 +502,22 @@ class horizontallyLongItemContainer extends StatelessWidget {
           width: double.infinity,
           height: height,
           decoration: BoxDecoration(
-            color: textBackGroundColor,
+            gradient: RadialGradient(
+                radius: 1.3,
+                colors: containerColors,
+                center: Alignment.topCenter),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Text(
             theText,
             textAlign: TextAlign.right,
-            style: const TextStyle(
-                color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
+            style: TextStyle(
+                color: titleColor, fontSize: 20, fontWeight: FontWeight.w600),
           ),
         ),
         Positioned(
-          left: 15,
-          bottom: 0,
+          left: left,
+          bottom: bottom,
           child: Image(
             image: AssetImage(imagePath),
             height: 115,
@@ -798,4 +815,192 @@ class CustomClipPath2 extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class UcoinLevelPageContaienr extends StatelessWidget {
+  String imagepath;
+  String title;
+  String coins;
+  String description;
+
+  UcoinLevelPageContaienr(
+      {super.key,
+      required this.coins,
+      required this.description,
+      required this.imagepath,
+      required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(children: [
+      Container(
+        height: 180,
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(7)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text(
+              title,
+              style: TextStyle(color: textColor, fontWeight: FontWeight.w600),
+            ),
+            Chip(
+              backgroundColor: darkumniahColor,
+              label: FittedBox(
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: textColor,
+                      radius: 7,
+                      child: const Text(
+                        "u",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            height: 1,
+                            color: Colors.white),
+                      ),
+                    ),
+                    Text(
+                      coins,
+                      style: TextStyle(color: textColor),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Text(
+              description,
+              textAlign: TextAlign.end,
+              style: TextStyle(color: Colors.grey.shade700, fontSize: 14),
+            )
+          ],
+        ),
+      ),
+      Positioned(
+          top: 5,
+          left: 25,
+          child: Image(
+            image: AssetImage(imagepath),
+            height: 50,
+          ))
+    ]);
+  }
+}
+
+Widget uchips(String theText, bool wantIcon) {
+  return FittedBox(
+    child: Chip(
+      backgroundColor: transparentumniahColor,
+      label: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CircleAvatar(
+            radius: 7,
+            backgroundColor: textColor,
+            child: wantIcon
+                ? const Icon(
+                    Icons.local_fire_department_sharp,
+                    color: Colors.white,
+                    size: 13,
+                  )
+                : const Text(
+                    "u",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        height: 1),
+                  ),
+          ),
+          const SizedBox(
+            width: 3,
+          ),
+          Text(
+            theText,
+            style: TextStyle(
+              color: textColor,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget StepsContainer() {
+  return Container(
+      padding: const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
+      height: 190,
+      width: 175,
+      decoration: BoxDecoration(
+        color: containerColor,
+        borderRadius: BorderRadius.circular(7),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                  padding: EdgeInsets.all(2.5),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: LinearGradient(
+                          colors: [umniahColor, containerColor],
+                          begin: Alignment.bottomRight,
+                          end: Alignment.topLeft),
+                      backgroundBlendMode: BlendMode.overlay),
+                  child: Container(
+                    padding: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: containerColor),
+                    child: const Icon(
+                      Icons.directions_walk,
+                      size: 18,
+                      color: Colors.white,
+                    ),
+                  )),
+              uchips("+50", true)
+            ],
+          ),
+          RichText(
+            textDirection: TextDirection.rtl,
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "10000/",
+                  style: TextStyle(
+                    color: Colors.grey.shade400,
+                    fontSize: 15,
+                  ),
+                ),
+                const TextSpan(
+                  text: "4122",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+                TextSpan(
+                  text: "خطوة",
+                  style: TextStyle(
+                    color: Colors.grey.shade400,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Text(
+            "الخطوات",
+            textAlign: TextAlign.right,
+            style: TextStyle(
+                color: Colors.white, fontSize: 22, fontWeight: FontWeight.w600),
+          )
+        ],
+      ));
 }

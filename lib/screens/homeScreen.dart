@@ -21,7 +21,8 @@ class _homePageState extends State<homePage> {
   List<Widget> activeTabWidget = [
     const HomeTab(),
     const ShopTab(),
-    const UconTab()
+    const UconTab(),
+    const HelpTab(),
   ];
 
   @override

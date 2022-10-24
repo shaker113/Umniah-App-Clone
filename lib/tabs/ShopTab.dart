@@ -36,6 +36,10 @@ class _ShopTabState extends State<ShopTab> {
                   height: 17,
                 ),
                 horizontallyLongItemContainer(
+                  titleColor: Colors.white,
+                  containerColors: [textBackGroundColor, textBackGroundColor],
+                  left: 15,
+                  bottom: 0,
                   imagePath: "assets/images/phone.png",
                   theText: "المتجر\nالالكتروني",
                   height: 125,
@@ -51,6 +55,9 @@ class _ShopTabState extends State<ShopTab> {
                 Column(
                   children: [
                     LongItemsContainer(
+                        imageHeight: 150,
+                        left: 0,
+                        top: 20,
                         textColor: textColor,
                         colors: [
                           const Color.fromARGB(255, 254, 254, 205),
@@ -78,6 +85,9 @@ class _ShopTabState extends State<ShopTab> {
                       height: 8.7,
                     ),
                     LongItemsContainer(
+                      imageHeight: 150,
+                      left: 0,
+                      top: 20,
                       textColor: Colors.white,
                       colors: [Colors.blue.shade100, Colors.lightBlue],
                       imagePath: "assets/images/sandClock.png",

@@ -6,3 +6,4 @@ export 'WelcomeRow.dart';
 export 'appBar.dart';
 export 'actionButtonDialog.dart';
 export 'imageSlider.dart';
+export 'ucoinTabBar.dart';
