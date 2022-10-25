@@ -191,7 +191,7 @@ class _UcoinTabBarState extends State<UcoinTabBar>
                 LongItemsContainer(
                   imageHeight: 100,
                   top: 50,
-                  left: 20,
+                  left: -25,
                   textColor: textColor,
                   colors: [Colors.blue.shade100, Colors.lightBlue],
                   imagePath: "assets/images/gamePad.png",

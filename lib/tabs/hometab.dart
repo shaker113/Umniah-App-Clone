@@ -106,19 +106,20 @@ class _HomeTabState extends State<HomeTab> {
                           height: 25,
                         ),
                   vertecalButton(
-                      IconData: isPressed
-                          ? Icons.vertical_align_top
-                          : Icons.vertical_align_bottom,
-                      thetext: isPressed ? "اخفاء الحزم" : "اظهار الحزم",
-                      thetextColor: Colors.white,
-                      onTap: () {
-                        isPressed = !isPressed;
-                        setState(() {
-                          isPressed
-                              ? containerHeight = 750
-                              : containerHeight = 520;
-                        });
-                      })
+                    IconData: isPressed
+                        ? Icons.vertical_align_top
+                        : Icons.vertical_align_bottom,
+                    thetext: isPressed ? "اخفاء الحزم" : "اظهار الحزم",
+                    thetextColor: Colors.white,
+                    onTap: () {
+                      isPressed = !isPressed;
+                      setState(() {
+                        isPressed
+                            ? containerHeight = 750
+                            : containerHeight = 520;
+                      });
+                    },
+                  )
                 ],
               ),
             ),

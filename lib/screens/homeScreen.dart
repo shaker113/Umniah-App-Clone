@@ -105,9 +105,11 @@ class _homePageState extends State<homePage> {
                   thetext: "الشراء",
                   thetextColor: activeTab == 1 ? textColor : Colors.grey,
                   onTap: () {
-                    setState(() {
-                      activeTab = 1;
-                    });
+                    setState(
+                      () {
+                        activeTab = 1;
+                      },
+                    );
                   },
                 ),
                 activeTab == 1

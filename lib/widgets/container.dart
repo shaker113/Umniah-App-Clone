@@ -295,10 +295,12 @@ class ItemsContainer extends StatelessWidget {
             ),
             Text(
               theText,
+              maxLines: 2,
               textAlign: TextAlign.right,
               style: TextStyle(
                   color: thistextColor,
-                  fontSize: 22,
+                  fontSize: 20,
+                  overflow: TextOverflow.ellipsis,
                   fontWeight: FontWeight.w600),
             )
           ],
